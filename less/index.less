@@ -55,9 +55,138 @@ table {
 
 html, body {
 	height: 100%;
+	font-size: 62.5%;
 }
 
-body {
-	background: red;
+// Variables:
+@resume-margin: 25px;
+@resume-padding: 25px;
+
+// Mixins
+.border-class {
+	border: 1px solid green;
+	border-radius: 10px;
+	box-shadow: 5px 10px 8px #888888;
+	padding: @resume-padding;
+	margin-bottom: 20px;
 }
+
+.flex-end {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.img-center {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+// End Mixins
+
+body {
+	width: 880px;
+	margin: 0 auto;
+	@media (max-width: 500px) {
+		width: 95%;
+	}
+}
+
+header {
+	margin: @resume-margin;
+	nav {
+		.flex-end();
+		}
+		a {
+		margin-left: @resume-margin;
+		font-size: 1.6rem;
+		text-decoration: none;
+		@media (max-width: 500px) {
+				justify-items: center;
+				margin: 0 auto;
+		}
+	}	
+}
+
+main {
+	margin: @resume-margin;
+	.upper-container {
+		.border-class();
+		background: lightgrey;
+		img {
+			width: 300px;
+			height: 300px;
+			.img-center();
+			@media (max-width: 500px) {
+				width: 90%;
+				height: 90%;
+			}
+			margin-top: @resume-margin;
+		}		
+	}
+	.middle-container {
+		.border-class();
+		display: flex;
+		@media (max-width: 500px) {
+			flex-direction: column;
+		}
+		div {
+			width: 400px;
+			padding-right: @resume-padding;
+			@media (max-width: 500px) {
+				width: 90%;
+			}
+			ul {
+				padding-top: @resume-padding;
+				font-size: 1.5rem;
+				list-style-type: disc;
+				list-style-position: inside;
+			}
+		}
+	}
+	.lower-container {
+		.border-class();
+		table {
+			font-size: 1.5rem;
+			margin-top: @resume-margin;
+		}
+	}	
+	h1{
+		font-size: 5rem;
+		margin-top: @resume-margin;
+		@media (max-width: 500px) {
+		text-align: center;
+		}
+	}
+	h3 {
+		font-size: 2.5rem;
+		margin-top: @resume-margin;
+	}
+	p {
+		font-size: 1.5rem;
+		margin-top: @resume-margin;
+	}
+	input {
+		height: 25px;
+		width: 180px;
+		margin-top: @resume-margin;
+		border-radius: 5px;
+	}
+}
+
+.table-class {
+    margin-left:auto; 
+	margin-right:auto;
+	th {
+		font-size: 1.8rem;
+		padding-left: 40px;
+	}
+  }
+
+footer {
+	margin: @resume-margin;
+	text-align: center;
+	font-size: 1.1rem;
+}
+
 
